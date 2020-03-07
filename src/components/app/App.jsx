@@ -45,6 +45,15 @@ class App extends React.Component {
     });
   }
 
+  handleComplete = (idx) => {
+    this.setState((prevState) => {
+      let updatedTodos = prevState.todos;
+      updatedTodos[idx].completed = !updatedTodos[idx].completed;
+
+      return { todos: updatedTodos };
+    });
+  }
+
   render() {
     //Destructuring
     const { todos, text } = this.state;
@@ -53,6 +62,7 @@ class App extends React.Component {
       <div className="app">
         <TodoList
           todos={todos}
+          handleComplete={this.handleComplete}
         />
         <CreateTodo
           handleSubmit={this.handleSubmit}
