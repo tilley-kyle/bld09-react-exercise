@@ -12,4 +12,4 @@
 
 ## Extra Credit
 
-1. Allow users to filter todos by completion
+1. Allow users to filter todos by date

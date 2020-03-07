@@ -10,8 +10,8 @@ import './TodoList.css';
 const TodoList = ({ todos }) => (
     <section>
         <Header />
-        <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
+        <div className="tbl-header">
+            <table cellPadding="0" cellSpacing="0" border="0">
                 <thead>
                     <tr>
                         <th>Number</th>
@@ -21,12 +21,13 @@ const TodoList = ({ todos }) => (
                 </thead>
             </table>
         </div>
-        <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
+        <div className="tbl-content">
+            <table cellPadding="0" cellSpacing="0" border="0">
                 <tbody>
                    {todos.map(todo => (
                        <TodoItem
-                          todo={todo}
+                            key={todo.id}
+                            todo={todo}
                        />
                    ))}
                 </tbody>

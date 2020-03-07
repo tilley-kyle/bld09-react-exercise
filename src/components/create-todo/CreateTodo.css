@@ -1,0 +1,40 @@
+.add-todo {
+   display: flex;
+   justify-content: center;
+}
+
+.add-todo input {
+    margin: 0 .25rem;
+    font-size: large;
+    min-width: 205px;
+    min-height: 30px;
+    border: 2px solid black;
+    border-left: 3px solid;
+    border-radius: 5px;
+    outline: none;
+    transition: border .5s ease-out;
+}
+
+.add-todo input:required {
+    border-color: palegreen;
+}
+.add-todo input:invalid {
+    border-color: salmon;
+}
+
+form button {
+    margin: 0 .25rem;
+    height: 35px;
+    background-color: white;
+    border: 2px solid palegreen;
+    border-radius: 5px;
+    outline: none;
+}
+
+form button:hover {
+    opacity: 0.7;
+}
+
+form button:active {
+  transform: translateY(2px);
+}
