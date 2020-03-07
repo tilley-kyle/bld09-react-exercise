@@ -9,3 +9,7 @@
 4. Allow users to update the description of a todo.
 
 5. Allow users to delete todos. 
+
+## Extra Credit
+
+1. Allow users to filter todos by completion

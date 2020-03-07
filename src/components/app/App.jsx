@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../header/Header';
+import TodoList from '../todo-list/TodoList';
 
 import './App.css';
 
@@ -12,16 +12,21 @@ class App extends React.Component {
       todos: [
         { id: 1, description: 'Stop students from using var.', completed: false },
         { id: 2, description: 'Fix asynchronous swim.', completed: false },
-        { id: 3, description: 'Use only arrow function.', completed: true },
+        { id: 3, description: 'Use only arrow functions.', completed: true },
         { id: 4, description: 'Create a React exercise.', completed: true }
       ]
     }
   }
 
   render() {
+    // ES6 destructuring
+    const { todos } = this.state;
+
     return (
       <div className="app">
-        <Header />
+        <TodoList
+          todos={todos}
+        />
       </div>
     );
   }
