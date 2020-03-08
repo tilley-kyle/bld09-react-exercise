@@ -7,7 +7,7 @@ import './TodoList.css';
 
                 // ES6 Destructuring now we can access todos prop with
                 // just todos rather than props.todos
-const TodoList = ({ todos, handleComplete }) => (
+const TodoList = ({ todos, handleComplete, showModal }) => (
     <section>
         <Header />
         <div className="tbl-header">
@@ -29,6 +29,7 @@ const TodoList = ({ todos, handleComplete }) => (
                             key={todo.id}
                             todo={todo}
                             handleComplete={handleComplete}
+                            showModal={showModal}
                        />
                    ))}
                 </tbody>

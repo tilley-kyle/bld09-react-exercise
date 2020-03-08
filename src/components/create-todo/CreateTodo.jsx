@@ -6,7 +6,7 @@ const CreateTodo = ({ handleSubmit, handleChange, text }) => (
     <form className="add-todo" onSubmit={handleSubmit}>
         <input
             type="text"
-            name="todo"
+            name="text"
             autoComplete="off"
             value={text}
             onChange={handleChange}

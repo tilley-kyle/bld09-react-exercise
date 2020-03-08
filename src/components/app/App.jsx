@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoList from '../todo-list/TodoList';
 import CreateTodo from '../create-todo/CreateTodo';
+import Modal from '../modal/Modal';
 
 import './App.css';
 
@@ -16,12 +17,18 @@ class App extends React.Component {
         { id: 3, description: 'Use only arrow functions.', completed: true },
         { id: 4, description: 'Create a React exercise.', completed: true }
       ],
-      text: ''
+      text: '',
+      description: '',
+      idx: 0,
+      show: false
     }
   }
 
   handleChange = (e) => {
-    this.setState({ text: e.target.value });
+    //Destructuring
+    const { name, value } = e.target;
+
+    this.setState({ [name]: value });
   }
 
   handleSubmit = (e) => {
@@ -54,21 +61,57 @@ class App extends React.Component {
     });
   }
 
+  showModal = (idx) => {
+    this.setState((prevState) => (
+      {
+        show: !prevState.show,
+        idx,
+        description: idx >= 0 ? prevState.todos[idx].description : ''
+      }
+    ));
+  }
+
+  hideModal = (idx) => {
+    this.setState((prevState) => {
+      const updatedTodo = prevState.todos;
+      updatedTodo[idx].description = prevState.description;
+
+      return { todos: updatedTodo, show: !prevState.show };
+    });
+  }
+
   render() {
     //Destructuring
-    const { todos, text } = this.state;
+    const {
+      todos,
+      text,
+      show,
+      idx,
+      description
+    } = this.state;
 
     return (
       <div className="app">
-        <TodoList
-          todos={todos}
-          handleComplete={this.handleComplete}
-        />
-        <CreateTodo
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          text={text}
-        />
+        <div className={show ? 'dim' : null}>
+          <TodoList
+            todos={todos}
+            handleComplete={this.handleComplete}
+            showModal={this.showModal}
+          />
+          <CreateTodo
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            text={text}
+          />
+        </div>
+        {show ? (
+          <Modal
+            description={description}
+            handleChange={this.handleChange}
+            idx={idx}
+            hideModal={this.hideModal}
+          />
+        ) : null}
       </div>
     );
   }
