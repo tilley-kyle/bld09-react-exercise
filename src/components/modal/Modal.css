@@ -39,3 +39,9 @@
     color: black;
     border: 1px solid black;
 }
+
+.delete-button {
+    width: 240px;
+    top: 71%;
+    background-color: red;
+}

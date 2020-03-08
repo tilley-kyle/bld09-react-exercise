@@ -24,10 +24,11 @@ const TodoList = ({ todos, handleComplete, showModal }) => (
         <div className="tbl-content">
             <table cellPadding="0" cellSpacing="0" border="0">
                 <tbody>
-                   {todos.map(todo => (
+                   {todos.map((todo, idx) => (
                        <TodoItem
                             key={todo.id}
                             todo={todo}
+                            idx={idx}
                             handleComplete={handleComplete}
                             showModal={showModal}
                        />

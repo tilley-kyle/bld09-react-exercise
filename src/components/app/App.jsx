@@ -80,6 +80,15 @@ class App extends React.Component {
     });
   }
 
+  deleteTodo = (idx) => {
+    this.setState((prevState) => {
+      let deletedTodo = prevState.todos;
+      deletedTodo.splice(idx, 1);
+
+      return { todos: deletedTodo, show: !prevState.show };
+    });
+  }
+
   render() {
     //Destructuring
     const {
@@ -109,6 +118,7 @@ class App extends React.Component {
             description={description}
             handleChange={this.handleChange}
             idx={idx}
+            deleteTodo={this.deleteTodo}
             hideModal={this.hideModal}
           />
         ) : null}

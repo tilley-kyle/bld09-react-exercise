@@ -1,11 +1,13 @@
 import React from 'react';
 
+import './TodoItem.css';
+
 //ES6 Destructuring
-const TodoItem = ({ todo, handleComplete, showModal }) => (
+const TodoItem = ({ todo, handleComplete, showModal, idx }) => (
     <tr className="tr-item">
         <td>{todo.id}</td>
-        <td onClick={() => showModal(todo.id - 1)}>{todo.description}</td>
-        <td onClick={() => handleComplete(todo.id - 1)}>{todo.completed ? 'YES' : 'NO'}</td>
+        <td onClick={() => showModal(idx)}>{todo.description}</td>
+        <td onClick={() => handleComplete(idx)}>{todo.completed ? 'YES' : 'NO'}</td>
     </tr>
 );
 
