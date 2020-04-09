@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      user: 'Kyle',
       todos: [
         { id: 1, description: 'Stop students from using var.', completed: false },
         { id: 2, description: 'Fix asynchronous swim.', completed: false },
@@ -21,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header />
+        <Header user={this.state.user}/>
       </div>
     );
   }
