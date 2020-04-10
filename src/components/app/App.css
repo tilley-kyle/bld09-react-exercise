@@ -10,6 +10,7 @@ h1 {
 /* Todos */
 .description {
   text-shadow: 1px 1px 0 grey;
+  margin: 0 5px 5px 0;
 }
 
 /* TodoList */
@@ -20,4 +21,9 @@ h1 {
 .list-elements {
   padding-left: 15px;
   border-left-width: 2px solid black;
+}
+
+/* completed item */
+#true {
+  text-decoration: line-through;
 }
