@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Header from '../header/Header';
-
 import './App.css';
+import TodoList from '../TodoList/TodoList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,8 +20,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <Header user={this.state.user}/>
+      <div>
+        <div className="app">
+          <Header user={this.state.user}/>
+        </div>
+        <div classNmae="TodoList">
+          <TodoList todos={this.state.todos}/>
+        </div>
       </div>
     );
   }
