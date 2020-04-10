@@ -1,9 +1,9 @@
 import React from 'react';
+import './Todo.css'
 
 const Todo = (props) => (
   <div>
-  <h2 className="item-name">name of the todo</h2>
-    <p className="description">description of what the todo it</p>
+    <h2 className="description">{props.listItem.description} </h2>
   </div>
 );
 
